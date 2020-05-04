@@ -10,8 +10,16 @@ import SwiftUI
 import BlobMenu
 
 struct ContentView: View {
+    
+    @Environment(\.blobMenuEnvironment) var menuEnvironment: BlobMenuEnvironment
+    
+    
     var body: some View {
-        BlobMenuView.createMenu(items: MenuItem.all)
+        VStack {
+            BlobMenuView.createMenu(items: MenuItem.all)
+        }.onReceive(menuEnvironment.$selectedIndex) { index in
+            print("index: \(index)")
+        }
     }
 }
 

@@ -10,9 +10,9 @@ import SwiftUI
 
 public struct BlobMenuView: View {
     
-    @EnvironmentObject var environment: BlobMenuEnvironment
-    @State var selectedIndex: Int = 0
+    @State public var selectedIndex: Int
     
+    @EnvironmentObject private var environment: BlobMenuEnvironment
     private let items: [MenuItem]
     
     public static func createMenu(items: [MenuItem], selectedIndex: Int = 0) -> some View {
@@ -21,7 +21,11 @@ public struct BlobMenuView: View {
     
     private init(items: [MenuItem], selectedIndex: Int = 0) {
         self.items = items
-        self.selectedIndex = selectedIndex.limited(0, items.count - 1)
+        
+        let limitedIndex = selectedIndex.limited(0, items.count - 1)
+        _selectedIndex = State<Int>.init(initialValue: limitedIndex)
+        
+        BlobMenuEnvironmentKey.defaultValue.selectedIndex = limitedIndex
         
         UIWindow.current?.addGesture(type: .tap) { _ in
             BlobMenuEnvironmentKey.defaultValue.isMenuItemsVisible = false
@@ -69,7 +73,6 @@ public struct BlobMenuView: View {
             
         return AnyView(effectView.fill(Color.backgroundColor)
             .frame(size: CGSize(width: w, height: f.height)))
-            //.position(CGPoint(x: b.maxX + w / 2 - r, y: f.height / 2))
     }
     
     private var background: some View {
@@ -107,6 +110,7 @@ public struct BlobMenuView: View {
                 MenuItemView(item: item, isSelected: self.selectedIndex == index, isOpened: self.$environment.isMenuItemsVisible).onTapGesture {
                     
                     self.selectedIndex = index
+                    BlobMenuEnvironmentKey.defaultValue.selectedIndex = index
                 }
             }
         }

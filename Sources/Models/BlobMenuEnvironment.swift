@@ -9,20 +9,21 @@
 import Foundation
 import SwiftUI
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     var blobMenuEnvironment: BlobMenuEnvironment {
         get { return self[BlobMenuEnvironmentKey.self] }
         set { self[BlobMenuEnvironmentKey.self] = newValue }
     }
 }
 
-public struct BlobMenuEnvironmentKey: EnvironmentKey {
-    public static let defaultValue: BlobMenuEnvironment = BlobMenuEnvironment()
+struct BlobMenuEnvironmentKey: EnvironmentKey {
+    static let defaultValue: BlobMenuEnvironment = BlobMenuEnvironment()
 }
 
 public final class BlobMenuEnvironment: ObservableObject {
-    @Published var isOpened: Bool = false
-    @Published var isMenuItemsVisible: Bool = false 
+    @Published public internal(set) var isOpened: Bool = false
+    @Published public internal(set) var isMenuItemsVisible: Bool = false
+    @Published public internal(set) var selectedIndex: Int = 0
     
     fileprivate init() {}
 }

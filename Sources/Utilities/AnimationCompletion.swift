@@ -9,39 +9,6 @@
 import Foundation
 import SwiftUI
 
-/*
-struct AnimationCompletion: GeometryEffect {
-    
-    /// Ratio should be in range [0...1]
-    var progress: CGFloat = 0
-    
-    var onCompletion: () -> Void
-    
-    var animatableData: CGFloat {
-        get { return progress }
-        set { progress = newValue }
-    }
-
-    func effectValue(size: CGSize) -> ProjectionTransform {
-        if self.progress == 1 {
-            DispatchQueue.main.async {
-                self.onCompletion()
-            }
-        }
-        
-        return ProjectionTransform()
-    }
-}
-
-extension View {
-    func onAnimationCompleted(condition: Bool, callback: @escaping () -> Void) -> some View {
-        let m = AnimationCompletion(progress: condition ? 1 : 0, onCompletion: callback)
-        return AnyView(self.modifier(m))
-    }
-}
-*/
-
-
 private struct CompletionPreferenceKey: PreferenceKey {
   typealias Value = CGFloat
 

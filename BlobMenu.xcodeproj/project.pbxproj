@@ -125,12 +125,12 @@
 		393AAE86246053B50059752A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				393AAE87246053B50059752A /* StickyEffectView.swift */,
-				393AAE88246053B50059752A /* HamburgerView.swift */,
-				393AAE89246053B50059752A /* MenuItemView.swift */,
 				393AAE8A246053B50059752A /* BlobMenuView.swift */,
 				393AAE8B246053B50059752A /* BackgroundView.swift */,
+				393AAE87246053B50059752A /* StickyEffectView.swift */,
 				393AAE8C246053B50059752A /* StickyPathGenerator.swift */,
+				393AAE88246053B50059752A /* HamburgerView.swift */,
+				393AAE89246053B50059752A /* MenuItemView.swift */,
 				393AAE8D246053B50059752A /* Theme.swift */,
 			);
 			path = Views;
