@@ -10,15 +10,40 @@ import SwiftUI
 import BlobMenu
 
 struct ContentView: View {
+
+    enum Screen: Int {
+        case wallet
+        case exchange
+        case commerce
+        case stocks
+    }
     
+    @State var screen: Screen = .wallet
     @Environment(\.blobMenuEnvironment) var menuEnvironment: BlobMenuEnvironment
     
-    
     var body: some View {
+        ZStack {
+            screenView.edgesIgnoringSafeArea(Edge.Set.all)
+            menuView
+        }
+    }
+    
+    private var screenView: some View {
+        switch screen {
+        case .wallet: return Rectangle().fill(Color.red)
+        case .exchange: return Rectangle().fill(Color.green)
+        case .commerce: return Rectangle().fill(Color.gray)
+        case .stocks: return Rectangle().fill(Color.yellow)
+        }
+    }
+    
+    private var menuView: some View {
         VStack {
-            BlobMenuView.createMenu(items: MenuItem.all)
+            Spacer()
+            BlobMenuView.createMenu(items: MenuItem.all, selectedIndex: self.screen.rawValue).padding(.bottom, 30)
         }.onReceive(menuEnvironment.$selectedIndex) { index in
-            print("index: \(index)")
+            guard let screen = Screen(rawValue: index) else { return }
+            self.screen = screen
         }
     }
 }
