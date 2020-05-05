@@ -35,7 +35,7 @@ private struct ItemCell: View {
             Text(Lorem.words(3).capitalized)
                 .font(.subheadline)
                 .lineLimit(1)
-                .padding(.horizontal)
+                .padding(Edge.Set.all.subtracting(.bottom))
             Text(Lorem.paragraph)
                 .font(.body)
                 .foregroundColor(.gray)
