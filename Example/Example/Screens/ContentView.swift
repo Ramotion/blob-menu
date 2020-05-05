@@ -23,17 +23,17 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            screenView.edgesIgnoringSafeArea(Edge.Set.all)
+            screenView.edgesIgnoringSafeArea(Edge.Set.all.subtracting(.top))
             menuView
         }
     }
     
     private var screenView: some View {
         switch screen {
-        case .wallet: return Rectangle().fill(Color.red)
-        case .exchange: return Rectangle().fill(Color.green)
-        case .commerce: return Rectangle().fill(Color.gray)
-        case .stocks: return Rectangle().fill(Color.yellow)
+        case .wallet: return AnyView(WalletView())
+        case .exchange: return AnyView(Rectangle().fill(Color.green))
+        case .commerce: return AnyView(Rectangle().fill(Color.gray))
+        case .stocks: return AnyView(Rectangle().fill(Color.yellow))
         }
     }
     
