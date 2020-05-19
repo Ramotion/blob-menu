@@ -18,6 +18,9 @@ struct WalletView: View {
                     ItemCell()
                 }
             }
+            .simultaneousGesture(DragGesture(minimumDistance: 2).onChanged { g in
+                print("DRAG: \(Date().timeIntervalSince1970)")
+            })
             .navigationBarTitle("Wallet", displayMode: .large)
         }
     }

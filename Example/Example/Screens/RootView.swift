@@ -9,7 +9,7 @@
 import SwiftUI
 import BlobMenu
 
-struct ContentView: View {
+struct RootView: View {
 
     enum Screen: Int {
         case wallet
@@ -22,6 +22,7 @@ struct ContentView: View {
     @Environment(\.blobMenuEnvironment) var menuEnvironment: BlobMenuEnvironment
     
     var body: some View {
+        return PaginatedExampleView()
         ZStack {
             screenView.edgesIgnoringSafeArea(Edge.Set.all.subtracting(.top))
             menuView
@@ -30,10 +31,10 @@ struct ContentView: View {
     
     private var screenView: some View {
         switch screen {
-        case .wallet: return AnyView(WalletView())
-        case .exchange: return AnyView(Rectangle().fill(Color.green))
-        case .commerce: return AnyView(Rectangle().fill(Color.gray))
-        case .stocks: return AnyView(Rectangle().fill(Color.yellow))
+        case .wallet: return WalletView().asAnyView
+        case .exchange: return Rectangle().fill(Color.green).asAnyView
+        case .commerce: return Rectangle().fill(Color.gray).asAnyView
+        case .stocks: return Rectangle().fill(Color.yellow).asAnyView
         }
     }
     
@@ -48,9 +49,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }
 
@@ -73,13 +74,4 @@ extension Image {
     static let exchangeUnselected = Image("Icon_Exchange_gray")
     static let gridSelected = Image("Icon_Grid_black")
     static let gridUnselected = Image("Icon_Grid_gray")
-}
-
-
-extension Color {
-    static var random: Color {
-        return Color(red: .random(in: 0...1),
-                     green: .random(in: 0...1),
-                     blue: .random(in: 0...1))
-    }
 }
