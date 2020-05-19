@@ -31,9 +31,9 @@ struct StickyEffectShape: Shape {
     func path(in rect: CGRect) -> Path {
         
         let path = pathGenerator.generatePath(baseRect: baseRect,
-                                              figureRect: figureRect,
-                                              figureCornerRadius: figureCornerRadius,
-                                              avulsionDistance: avulsionDistance)
+                                    figureRect: figureRect,
+                                    figureCornerRadius: figureCornerRadius,
+                                    avulsionDistance: avulsionDistance)
         
         return Path(path)
     }

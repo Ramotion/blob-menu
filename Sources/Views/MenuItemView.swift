@@ -15,6 +15,8 @@ public struct MenuItemView: View {
     public let isSelected: Bool
     @Binding public var isOpened: Bool
     
+    var selectionColor: Color
+    
     public var body: some View {
         ZStack {
             selectionView
@@ -35,7 +37,7 @@ public struct MenuItemView: View {
     
     private var selectionView: some View {
         Circle()
-        .foregroundColor(Color.selection)
+        .foregroundColor(selectionColor)
         .frame(size: Theme.contentSize)
         .opacity(isSelected ? 1 : 0)
         .animation(nil)
@@ -46,7 +48,7 @@ public struct MenuItemView: View {
     private var ringView: some View {
         let show = isOpened && isSelected
         return Circle()
-        .stroke(Color.selection)
+        .stroke(selectionColor)
         .frame(size: Theme.contentSize)
         .opacity(show ? 0 : 1)
         .animation(show ? Animation.easeInOut.delay(0.2) : nil)

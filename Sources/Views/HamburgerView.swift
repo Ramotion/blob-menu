@@ -9,8 +9,9 @@
 import SwiftUI
 
 public struct HamburgerView: View {
-    
+        
     public let isOpened: Bool
+    public let color: Color
     
     private var rotationAngle: Angle {
         return Angle(degrees: isOpened ? -90 : 0)
@@ -31,7 +32,7 @@ public struct HamburgerView: View {
     private var line: some View {
         Rectangle()
             .frame(width: Theme.lineWidth, height: Theme.lineThickness)
-            .foregroundColor(Color.hamburgerColor)
+            .foregroundColor(color)
             .cornerRadius(Theme.lineCornerRadius)
     }
 }
@@ -40,7 +41,7 @@ public struct HamburgerView: View {
 //MARK: - Preview
 struct HamburgerView_Previews: PreviewProvider {
     static var previews: some View {
-        return HamburgerView(isOpened: false)
+        return HamburgerView(isOpened: false, color: .hamburgerColor)
     }
 }
 
