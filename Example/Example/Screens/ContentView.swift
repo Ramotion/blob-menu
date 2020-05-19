@@ -54,7 +54,6 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
 extension MenuItem {
     static let all: [MenuItem] = [
         MenuItem(selectedIcon: Image.walletSelected, unselectedIcon: Image.walletUnselected, offset: CGPoint(x: 1, y: -2)),
@@ -74,4 +73,13 @@ extension Image {
     static let exchangeUnselected = Image("Icon_Exchange_gray")
     static let gridSelected = Image("Icon_Grid_black")
     static let gridUnselected = Image("Icon_Grid_gray")
+}
+
+
+extension Color {
+    static var random: Color {
+        return Color(red: .random(in: 0...1),
+                     green: .random(in: 0...1),
+                     blue: .random(in: 0...1))
+    }
 }

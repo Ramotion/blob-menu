@@ -18,6 +18,10 @@ extension View {
     public func offset(_ offset: CGPoint) -> some View {
         return self.offset(x: offset.x, y: offset.y)
     }
+    
+    public var asAnyView: AnyView {
+        return AnyView(self)
+    }
 }
 
 

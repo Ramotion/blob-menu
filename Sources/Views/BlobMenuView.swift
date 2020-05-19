@@ -14,13 +14,24 @@ public struct BlobMenuView: View {
     
     @EnvironmentObject private var environment: BlobMenuEnvironment
     private let items: [MenuItem]
+    private let configuration: BlobMenuConfiguration
     
-    public static func createMenu(items: [MenuItem], selectedIndex: Int = 0) -> some View {
-        return BlobMenuView(items: items, selectedIndex: selectedIndex).environmentObject(BlobMenuEnvironmentKey.defaultValue)
+    public static func createMenu(items: [MenuItem],
+            selectedIndex: Int = 0,
+            configuration: BlobMenuConfiguration = .default) -> some View {
+        
+        return BlobMenuView(items: items,
+                            selectedIndex: selectedIndex,
+                            configuration: configuration)
+            .environmentObject(BlobMenuEnvironmentKey.defaultValue)
     }
     
-    private init(items: [MenuItem], selectedIndex: Int = 0) {
+    private init(items: [MenuItem],
+                 selectedIndex: Int = 0,
+                 configuration: BlobMenuConfiguration = .default) {
+        
         self.items = items
+        self.configuration = configuration
         
         let limitedIndex = selectedIndex.limited(0, items.count - 1)
         _selectedIndex = State<Int>.init(initialValue: limitedIndex)
@@ -48,7 +59,7 @@ public struct BlobMenuView: View {
             }
             HStack {
                 Spacer()
-                HamburgerView(isOpened: environment.isOpened)
+                HamburgerView(isOpened: environment.isOpened, color: configuration.hamburgerColor)
                 Spacer().size(width: Theme.padding)
             }
         }
@@ -71,12 +82,14 @@ public struct BlobMenuView: View {
         
         let effectView = StickyEffectShape(baseRect: base, figureRect: b, figureCornerRadius: r, avulsionDistance: Theme.stickyEffectAvulsionDistance)
             
-        return AnyView(effectView.fill(Color.backgroundColor)
-            .frame(size: CGSize(width: w, height: f.height)))
+        return effectView
+            .fill(configuration.backgroundColor)
+            .frame(size: CGSize(width: w, height: f.height))
+            .asAnyView
     }
     
     private var background: some View {
-        BackgroundView()
+        BackgroundView(color: configuration.backgroundColor)
         .cornerRadius(Theme.closedSize.height / 2)
         .keyframes(size: Theme.backgroundSizeKeyframes(isOpened: environment.isOpened, items: items), progress: environment.isOpened ? 1 : 0)
         .onAnimationCompleted(condition: environment.isOpened) {
@@ -107,8 +120,11 @@ public struct BlobMenuView: View {
     private var itemsContent: some View {
         HStack(spacing: 20) {
             ForEach(items.enumeratedArray(), id: \.element) { index, item in
-                MenuItemView(item: item, isSelected: self.selectedIndex == index, isOpened: self.$environment.isMenuItemsVisible).onTapGesture {
-                    
+                MenuItemView(item: item,
+                    isSelected: self.selectedIndex == index,
+                    isOpened: self.$environment.isMenuItemsVisible,
+                    selectionColor: self.configuration.selectionColor)
+                .onTapGesture {
                     self.selectedIndex = index
                     BlobMenuEnvironmentKey.defaultValue.selectedIndex = index
                 }
