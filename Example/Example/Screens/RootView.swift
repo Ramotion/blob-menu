@@ -33,9 +33,9 @@ struct RootView: View {
     private var screenView: some View {
         switch screen {
         case .wallet: return WalletView(isDragging: $isDragging.animatable).asAnyView
-        case .exchange: return Rectangle().fill(Color.green).asAnyView
-        case .commerce: return Rectangle().fill(Color.gray).asAnyView
-        case .stocks: return Rectangle().fill(Color.yellow).asAnyView
+        case .exchange: return ExchangeView().asAnyView
+        case .commerce: return CommerceView().asAnyView
+        case .stocks: return StocksView().asAnyView
         }
     }
     
