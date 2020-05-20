@@ -18,20 +18,21 @@ struct RootView: View {
         case stocks
     }
     
-    @State var screen: Screen = .wallet
     @Environment(\.blobMenuEnvironment) var menuEnvironment: BlobMenuEnvironment
     
+    @State private var screen: Screen = .wallet
+    @State private var isDragging: Bool = false 
+    
     var body: some View {
-        return PaginatedExampleView()
         ZStack {
             screenView.edgesIgnoringSafeArea(Edge.Set.all.subtracting(.top))
-            menuView
+            menuView.opacity(isDragging ? 0.1 : 1)
         }
     }
     
     private var screenView: some View {
         switch screen {
-        case .wallet: return WalletView().asAnyView
+        case .wallet: return WalletView(isDragging: $isDragging.animatable).asAnyView
         case .exchange: return Rectangle().fill(Color.green).asAnyView
         case .commerce: return Rectangle().fill(Color.gray).asAnyView
         case .stocks: return Rectangle().fill(Color.yellow).asAnyView

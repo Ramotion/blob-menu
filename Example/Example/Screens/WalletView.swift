@@ -11,17 +11,16 @@ import SwiftUI
 
 struct WalletView: View {
     
+    @Binding var isDragging: Bool
+    
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
+            ExtendedScrollView(isDragging: $isDragging, contentInset: Theme.contentInset) {
                 ForEach(0..<10) { index in
                     ItemCell()
                 }
             }
-            .simultaneousGesture(DragGesture(minimumDistance: 2).onChanged { g in
-                print("DRAG: \(Date().timeIntervalSince1970)")
-            })
-            .navigationBarTitle("Wallet", displayMode: .large)
+            .navigationBarTitle("Wallet", displayMode: .inline)
         }
     }
 }
@@ -51,5 +50,13 @@ private struct ItemCell: View {
         .stroke(Color.gray, lineWidth: 0.5))
         .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+    }
+}
+
+
+//MARK: - Theme
+extension WalletView {
+    enum Theme {
+        static let contentInset = UIEdgeInsets(top: 20, left: 0, bottom: UIWindow.safeInsets.bottom + 20, right: 0)
     }
 }

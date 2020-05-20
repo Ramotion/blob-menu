@@ -346,7 +346,16 @@ public final class StickyPathGenerator {
         let curvePath = UIBezierPath()
         curvePath.move(to: point0)
         curvePath.addCurve(to: point1, controlPoint1: cpUp1, controlPoint2: cpUp2)
-        curvePath.addLine(to: point2)
+        if crossed {
+            curvePath.addLine(to: point2)
+        } else {
+            let center = input.figureRect.center
+            let dc = CGPoint(x: center.x - 0.5, y: center.y) // to fix small gap between menu and arc
+            let start = atan((point1.y - center.y) / (point1.x - center.x))
+            let end = atan((point2.y - center.y) / (point2.x - center.x))
+            curvePath.addArc(withCenter: dc, radius: input.figureCornerRadius, startAngle: start, endAngle: end, clockwise: true)
+            curvePath.addLine(to: point2)
+        }
         curvePath.addCurve(to: point3, controlPoint1: cpDown2, controlPoint2: cpDown1)
         
         return curvePath

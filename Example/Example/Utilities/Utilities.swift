@@ -18,3 +18,22 @@ extension Color {
         )
     }
 }
+
+extension UIWindow {
+    
+    static var safeInsets: UIEdgeInsets {
+        return current?.safeAreaInsets ?? UIEdgeInsets(top: 44, left: 0, bottom: 34, right: 0)
+    }
+        
+    static var isFullScreen: Bool {
+        return current?.frame == UIScreen.main.bounds
+    }
+}
+
+
+extension Binding where Value == Bool {
+    var animatable: Binding<Value>  {
+        return Binding<Value>(get: { return self.wrappedValue },
+                              set: { b in withAnimation { self.wrappedValue = b } })
+    }
+}

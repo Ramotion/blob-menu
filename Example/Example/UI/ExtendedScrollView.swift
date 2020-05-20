@@ -11,31 +11,43 @@ import SwiftUI
 
 struct ExtendedScrollView: UIViewRepresentable {
 
-    private let axis: Axis
+    private let isDragging: Binding<Bool>
     private let scrollView = UIScrollView()
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(control: self)
+        return Coordinator(control: self, isDragging: isDragging)
     }
 
     func makeUIView(context: Context) -> UIScrollView {
-        scrollView.refreshControl = UIRefreshControl()
-        scrollView.refreshControl?.addTarget(context.coordinator, action: #selector(Coordinator.handleRefreshControl), for: .valueChanged)
+        scrollView.delegate = context.coordinator
         return scrollView
     }
     
-    func updateUIView(_ uiView: UIScrollView, context: Context) { }
+    func updateUIView(_ uiView: UIScrollView, context: Context) {
+        
+    }
 
-    init<Content: View>(axis: Axis, @ViewBuilder content: () -> Content) {
-        self.axis = axis
+    init<Content: View>(axis: Axis = .vertical,
+                        isDragging: Binding<Bool> = .constant(false),
+                        showsIndicators: Bool = false,
+                        contentInset: UIEdgeInsets = .zero,
+                        @ViewBuilder content: () -> Content) {
+        
+        self.isDragging = isDragging
         
         let hosting = UIHostingController(rootView: content())
         hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        hosting.edgesForExtendedLayout = .all
+        hosting.extendedLayoutIncludesOpaqueBars = true
         
         scrollView.addSubview(hosting.view)
+        scrollView.showsVerticalScrollIndicator = showsIndicators
+        scrollView.showsHorizontalScrollIndicator = showsIndicators
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.contentInset = contentInset
         
         let constraints: [NSLayoutConstraint]
-        switch self.axis {
+        switch axis {
         case .horizontal:
             constraints = [
                 hosting.view.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
@@ -56,16 +68,22 @@ struct ExtendedScrollView: UIViewRepresentable {
         scrollView.addConstraints(constraints)
     }
     
-    final class Coordinator: NSObject {
-        let control: ExtendedScrollView
+    final class Coordinator: NSObject, UIScrollViewDelegate {
+        private let isDragging: Binding<Bool>
+        private let control: ExtendedScrollView
 
-        init(control: ExtendedScrollView) {
+        init(control: ExtendedScrollView, isDragging: Binding<Bool>) {
             self.control = control
+            self.isDragging = isDragging
+        }
+        
+        //MARK: - UIScrollView delegate methods
+        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+            isDragging.wrappedValue = true
         }
 
-        @objc fileprivate func handleRefreshControl(sender: UIRefreshControl) {
-            // handle the refresh event
-            sender.endRefreshing()
+        func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+            isDragging.wrappedValue = false
         }
     }
 }

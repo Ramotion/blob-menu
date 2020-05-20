@@ -32,6 +32,7 @@
 		393AAEB3246053B60059752A /* AnimationCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9B246053B50059752A /* AnimationCompletion.swift */; };
 		393AAEB4246053B60059752A /* BezierUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9C246053B50059752A /* BezierUtilities.swift */; };
 		393AAEB5246053B60059752A /* CommonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9D246053B50059752A /* CommonUtilities.swift */; };
+		398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		393AAE9B246053B50059752A /* AnimationCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCompletion.swift; sourceTree = "<group>"; };
 		393AAE9C246053B50059752A /* BezierUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierUtilities.swift; sourceTree = "<group>"; };
 		393AAE9D246053B50059752A /* CommonUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilities.swift; sourceTree = "<group>"; };
+		398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				393AAE8F246053B50059752A /* CGSize+Extensions.swift */,
+				398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */,
 				393AAE90246053B50059752A /* UIGestureRecognizer+Extensions.swift */,
 				393AAE91246053B50059752A /* UIWindow+Extensions.swift */,
 				393AAE92246053B50059752A /* CGPoint+Extensions.swift */,
@@ -253,6 +256,7 @@
 				393AAE9E246053B60059752A /* Transitions.swift in Sources */,
 				393AAEAE246053B60059752A /* ScaleKeyframesAnimation.swift in Sources */,
 				393AAEB1246053B60059752A /* KayframesAnimation.swift in Sources */,
+				398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */,
 				393AAEA0246053B60059752A /* MenuItem.swift in Sources */,
 				393AAEAA246053B60059752A /* UIWindow+Extensions.swift in Sources */,
 				393AAEB2246053B60059752A /* Then.swift in Sources */,
