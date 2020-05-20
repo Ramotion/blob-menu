@@ -4,7 +4,7 @@ import SwiftUI
 
 struct SwiftUIPagerView<Content: View & Identifiable>: View {
 
-    @State private var index: Int = 0
+    @Binding var index: Int
     @State private var offset: CGFloat = 0
 
     var pages: [Content]

@@ -31,9 +31,14 @@ extension UIWindow {
 }
 
 
-extension Binding where Value == Bool {
+extension Binding where Value: BindingAnimatable {
     var animatable: Binding<Value>  {
         return Binding<Value>(get: { return self.wrappedValue },
                               set: { b in withAnimation { self.wrappedValue = b } })
     }
 }
+
+protocol BindingAnimatable { }
+
+extension Bool: BindingAnimatable { }
+extension Int: BindingAnimatable { }
