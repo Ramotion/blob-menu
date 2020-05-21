@@ -35,7 +35,7 @@ struct RootView: View {
         case .wallet: return WalletView(isDragging: $isDragging.animatable).asAnyView
         case .exchange: return ExchangeView().asAnyView
         case .commerce: return CommerceView().asAnyView
-        case .stocks: return StocksView().asAnyView
+        case .stocks: return StocksView(isDragging: $isDragging.animatable).asAnyView
         }
     }
     

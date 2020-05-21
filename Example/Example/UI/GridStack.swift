@@ -9,33 +9,29 @@
 import Foundation
 import SwiftUI
 
-/*
-GridStack(rows: 4, columns: 4) { row, col in
-    Image(systemName: "\(row * 4 + col).circle")
-    Text("R\(row) C\(col)")
-}
-*/
 
-struct GridStack<Content: View>: View {
-    let rows: Int
+public struct GridStack<Content: View>: View {
     let columns: Int
+    let rows: Int
+    let spacing: CGFloat
     let content: (Int, Int) -> Content
-
-    var body: some View {
-        VStack {
-            ForEach(0 ..< rows, id: \.self) { row in
-                HStack {
-                    ForEach(0 ..< self.columns, id: \.self) { column in
-                        self.content(row, column)
+    
+    public init(columns: Int, rows: Int, spacing: CGFloat = 0, @ViewBuilder content: @escaping (Int, Int) -> Content) {
+        self.columns = columns
+        self.rows = rows
+        self.spacing = spacing
+        self.content = content
+    }
+    
+    public var body: some View {
+        VStack(spacing: self.spacing) {
+            ForEach(0..<self.rows, id: \.self) { row in
+                HStack(spacing: self.spacing) {
+                    ForEach(0..<self.columns, id: \.self) { column in
+                        self.content(column, row)
                     }
                 }
             }
         }
-    }
-
-    init(rows: Int, columns: Int, @ViewBuilder content: @escaping (Int, Int) -> Content) {
-        self.rows = rows
-        self.columns = columns
-        self.content = content
     }
 }
