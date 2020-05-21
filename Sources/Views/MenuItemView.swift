@@ -11,11 +11,10 @@ import SwiftUI
 
 public struct MenuItemView: View {
     
-    public let item: MenuItem
-    public let isSelected: Bool
-    @Binding public var isOpened: Bool
-    
-    var selectionColor: Color
+    let item: MenuItem
+    let isSelected: Bool
+    let isOpened: Bool
+    let selectionColor: Color
     
     public var body: some View {
         ZStack {

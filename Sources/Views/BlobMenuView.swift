@@ -122,7 +122,7 @@ public struct BlobMenuView: View {
             ForEach(items.enumeratedArray(), id: \.element) { index, item in
                 MenuItemView(item: item,
                     isSelected: self.selectedIndex == index,
-                    isOpened: self.$environment.isMenuItemsVisible,
+                    isOpened: self.environment.isMenuItemsVisible,
                     selectionColor: self.configuration.selectionColor)
                 .onTapGesture {
                     self.selectedIndex = index
