@@ -92,10 +92,10 @@ public struct BlobMenuView: View {
         BackgroundView(color: configuration.backgroundColor)
         .cornerRadius(Theme.closedSize.height / 2)
         .keyframes(size: Theme.backgroundSizeKeyframes(isOpened: environment.isOpened, items: items), progress: environment.isOpened ? 1 : 0)
+        .animation(Animation.interpolatingSpring(mass: 1, stiffness: 170, damping: 15, initialVelocity: 1).delay(environment.isOpened ? 0.12 : 0))
         .onAnimationCompleted(condition: environment.isOpened) {
             self.environment.isMenuItemsVisible = true
         }
-        .animation(Animation.interpolatingSpring(mass: 1, stiffness: 170, damping: 15, initialVelocity: 1).delay(environment.isOpened ? 0.12 : 0))
         .onTapGesture {
             withAnimation {
                 self.environment.isOpened = true
