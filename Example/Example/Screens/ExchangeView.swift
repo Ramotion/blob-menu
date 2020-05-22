@@ -16,23 +16,25 @@ struct ExchangeView: View {
     private let description = Text(Lorem.sentences(3))
     
     var body: some View {
-        VStack {
-            title
-                .font(.subheadline)
-                .lineLimit(1)
-                .padding(.top, 80)
-                .padding(.horizontal)
-            
-            description
-                .font(.body)
-                .foregroundColor(.gray)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.all)
-            
-            SwiftUIPagerView(index: $currentIndex.animatable, pages: pages)
-                .frame(height: 350)
-            PageControl(pagesCount: 4, index: $currentIndex)
-            Spacer()
+        Screen(color: .white) {
+            VStack {
+                self.title
+                    .font(.subheadline)
+                    .lineLimit(1)
+                    .padding(.top, 80)
+                    .padding(.horizontal)
+                
+                self.description
+                    .font(.body)
+                    .foregroundColor(.gray)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.all)
+                
+                SwiftUIPagerView(index: self.$currentIndex.animatable, pages: self.pages)
+                    .frame(height: 350)
+                PageControl(pagesCount: 4, index: self.$currentIndex)
+                Spacer()
+            }
         }
     }
     
@@ -51,6 +53,7 @@ struct Page: View, Identifiable {
                 .stroke(Color.gray, lineWidth: 0.5))
             .frame(height: 300)
             .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
+            .overlay(RandomIcon().padding(), alignment: .topLeading)
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
     }
 }

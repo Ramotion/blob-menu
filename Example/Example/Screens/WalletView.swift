@@ -14,13 +14,12 @@ struct WalletView: View {
     @Binding var isDragging: Bool
     
     var body: some View {
-        NavigationView {
-            ExtendedScrollView(isDragging: $isDragging, contentInset: Theme.contentInset) {
+        Screen(color: .white) {
+            ExtendedScrollView(isDragging: self.$isDragging, contentInset: Theme.contentInset) {
                 ForEach(0..<10) { index in
                     ItemCell()
                 }
             }
-            .navigationBarTitle("Wallet", displayMode: .inline)
         }
     }
 }
@@ -31,9 +30,10 @@ private struct ItemCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             Rectangle()
-                .fill(Color.random)
+                .fill(Color.lightGray)
                 .aspectRatio(5/3, contentMode: .fill)
                 .layoutPriority(1)
+                .overlay(RandomIcon().padding(), alignment: .topLeading)
             Text(Lorem.words(3).capitalized)
                 .font(.subheadline)
                 .lineLimit(1)

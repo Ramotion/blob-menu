@@ -13,15 +13,14 @@ struct StocksView: View {
     @Binding var isDragging: Bool
     
     var body: some View {
-        NavigationView {
-            ExtendedScrollView(isDragging: $isDragging, contentInset: Theme.contentInset) {
+        Screen(color: .white) {
+            ExtendedScrollView(isDragging: self.$isDragging, contentInset: Theme.contentInset) {
                 VStack(spacing: Theme.padding) {
-                    verticalCollection
-                    horizontalCollection
-                    verticalCollection
+                    self.verticalCollection
+                    self.horizontalCollection
+                    self.verticalCollection
                 }
             }
-            .navigationBarTitle("Stocks", displayMode: .inline)
         }
     }
     
@@ -48,12 +47,7 @@ struct StocksView: View {
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 0.5))
                 .frame(size: size)
                 .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
-            Text(Lorem.words(1).capitalized)
-                .font(.body)
-                .foregroundColor(Color.primary.opacity(0.45))
-                .lineLimit(1)
-                .greedyFrame(alignment: .bottomLeading)
-                .padding()
+            RandomIcon()
         }
     }
 }

@@ -10,20 +10,24 @@ import SwiftUI
 
 struct CommerceView: View {
     var body: some View {
-        VStack {
-            avatar
-            name
-            info
+        Screen(color: .white) {
+            VStack {
+                self.avatar
+                self.name
+                self.info
+            }
         }
     }
     
     private var avatar: some View {
-        Color.white
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.gray, lineWidth: 0.5))
-            .frame(size: CGSize(uniform: 50))
-            .rotateAroundOnTap
-            .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
+        ZStack {
+            Color.white
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.gray, lineWidth: 0.5))
+                .frame(size: CGSize(uniform: 60))
+                .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
+            RandomIcon()
+        }
     }
     
     private var name: some View {
