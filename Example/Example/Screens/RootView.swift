@@ -11,17 +11,17 @@ import BlobMenu
 
 struct RootView: View {
 
-    enum Screen: Int {
+    enum Screen: Int, CaseIterable {
         case wallet
         case exchange
         case commerce
         case stocks
     }
     
-    @Environment(\.blobMenuEnvironment) var menuEnvironment: BlobMenuEnvironment
-    
     @State private var screen: Screen = .wallet
     @State private var isDragging: Bool = false 
+    
+    @ObservedObject private var blobMenuModel = BlobMenuModel(items:  BlobMenuItem.all)
     
     var body: some View {
         ZStack {
@@ -32,6 +32,7 @@ struct RootView: View {
     }
     
     private var screenView: some View {
+        let screen = Screen(rawValue: blobMenuModel.selectedIndex) ?? .wallet
         switch screen {
         case .wallet: return WalletView(isDragging: $isDragging.animatable).asAnyView
         case .exchange: return ExchangeView().asAnyView
@@ -43,10 +44,7 @@ struct RootView: View {
     private var menuView: some View {
         VStack {
             Spacer()
-            BlobMenuView.createMenu(items: MenuItem.all, selectedIndex: self.screen.rawValue).padding(.bottom, 30)
-        }.onReceive(menuEnvironment.$selectedIndex) { index in
-            guard let screen = Screen(rawValue: index) else { return }
-            self.screen = screen
+            BlobMenuView(model: blobMenuModel).padding(.bottom, 30)
         }
     }
 }
@@ -57,12 +55,12 @@ struct RootView_Previews: PreviewProvider {
     }
 }
 
-extension MenuItem {
-    static let all: [MenuItem] = [
-        MenuItem(selectedIcon: Image.walletSelected, unselectedIcon: Image.walletUnselected, offset: CGPoint(x: 1, y: -2)),
-        MenuItem(selectedIcon: Image.exchangeSelected, unselectedIcon: Image.exchangeUnselected),
-        MenuItem(selectedIcon: Image.bitcoinSelected, unselectedIcon: Image.bitcoinUnselected),
-        MenuItem(selectedIcon: Image.gridSelected, unselectedIcon: Image.gridUnselected)
+extension BlobMenuItem {
+    static let all: [BlobMenuItem] = [
+        BlobMenuItem(selectedIcon: Image.walletSelected, unselectedIcon: Image.walletUnselected, offset: CGPoint(x: 1, y: -2)),
+        BlobMenuItem(selectedIcon: Image.exchangeSelected, unselectedIcon: Image.exchangeUnselected),
+        BlobMenuItem(selectedIcon: Image.bitcoinSelected, unselectedIcon: Image.bitcoinUnselected),
+        BlobMenuItem(selectedIcon: Image.gridSelected, unselectedIcon: Image.gridUnselected)
     ]
 }
 

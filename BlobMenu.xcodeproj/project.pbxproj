@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		3908002824474A3800E7727C /* BlobMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 3908002624474A3800E7727C /* BlobMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		393AAE9E246053B60059752A /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE82246053B50059752A /* Transitions.swift */; };
-		393AAE9F246053B60059752A /* BlobMenuEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE84246053B50059752A /* BlobMenuEnvironment.swift */; };
-		393AAEA0246053B60059752A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE85246053B50059752A /* MenuItem.swift */; };
+		393AAEA0246053B60059752A /* BlobMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE85246053B50059752A /* BlobMenuItem.swift */; };
 		393AAEA1246053B60059752A /* StickyEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE87246053B50059752A /* StickyEffectView.swift */; };
 		393AAEA2246053B60059752A /* HamburgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE88246053B50059752A /* HamburgerView.swift */; };
 		393AAEA3246053B60059752A /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE89246053B50059752A /* MenuItemView.swift */; };
@@ -32,6 +31,7 @@
 		393AAEB3246053B60059752A /* AnimationCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9B246053B50059752A /* AnimationCompletion.swift */; };
 		393AAEB4246053B60059752A /* BezierUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9C246053B50059752A /* BezierUtilities.swift */; };
 		393AAEB5246053B60059752A /* CommonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9D246053B50059752A /* CommonUtilities.swift */; };
+		39484546247823ED0046236D /* BlobMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39484545247823ED0046236D /* BlobMenuModel.swift */; };
 		398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +40,7 @@
 		3908002624474A3800E7727C /* BlobMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlobMenu.h; sourceTree = "<group>"; };
 		3908002724474A3800E7727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		393AAE82246053B50059752A /* Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
-		393AAE84246053B50059752A /* BlobMenuEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobMenuEnvironment.swift; sourceTree = "<group>"; };
-		393AAE85246053B50059752A /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		393AAE85246053B50059752A /* BlobMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobMenuItem.swift; sourceTree = "<group>"; };
 		393AAE87246053B50059752A /* StickyEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyEffectView.swift; sourceTree = "<group>"; };
 		393AAE88246053B50059752A /* HamburgerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerView.swift; sourceTree = "<group>"; };
 		393AAE89246053B50059752A /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		393AAE9B246053B50059752A /* AnimationCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCompletion.swift; sourceTree = "<group>"; };
 		393AAE9C246053B50059752A /* BezierUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierUtilities.swift; sourceTree = "<group>"; };
 		393AAE9D246053B50059752A /* CommonUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilities.swift; sourceTree = "<group>"; };
+		39484545247823ED0046236D /* BlobMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobMenuModel.swift; sourceTree = "<group>"; };
 		398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,8 +118,8 @@
 		393AAE83246053B50059752A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				393AAE84246053B50059752A /* BlobMenuEnvironment.swift */,
-				393AAE85246053B50059752A /* MenuItem.swift */,
+				393AAE85246053B50059752A /* BlobMenuItem.swift */,
+				39484545247823ED0046236D /* BlobMenuModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,8 +256,9 @@
 				393AAE9E246053B60059752A /* Transitions.swift in Sources */,
 				393AAEAE246053B60059752A /* ScaleKeyframesAnimation.swift in Sources */,
 				393AAEB1246053B60059752A /* KayframesAnimation.swift in Sources */,
+				39484546247823ED0046236D /* BlobMenuModel.swift in Sources */,
 				398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */,
-				393AAEA0246053B60059752A /* MenuItem.swift in Sources */,
+				393AAEA0246053B60059752A /* BlobMenuItem.swift in Sources */,
 				393AAEAA246053B60059752A /* UIWindow+Extensions.swift in Sources */,
 				393AAEB2246053B60059752A /* Then.swift in Sources */,
 				393AAEA7246053B60059752A /* Theme.swift in Sources */,
@@ -266,7 +267,6 @@
 				393AAEA1246053B60059752A /* StickyEffectView.swift in Sources */,
 				393AAEA4246053B60059752A /* BlobMenuView.swift in Sources */,
 				393AAEA3246053B60059752A /* MenuItemView.swift in Sources */,
-				393AAE9F246053B60059752A /* BlobMenuEnvironment.swift in Sources */,
 				393AAEAD246053B60059752A /* Comparable+Extensions.swift in Sources */,
 				393AAEAC246053B60059752A /* Collection+Extensions.swift in Sources */,
 				393AAEB0246053B60059752A /* SizeKeyframesAnimation.swift in Sources */,

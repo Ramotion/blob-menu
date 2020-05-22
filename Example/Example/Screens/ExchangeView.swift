@@ -12,9 +12,6 @@ struct ExchangeView: View {
     
     @State private var currentIndex: Int = 0
     
-    private let title = Text(Lorem.words(3).capitalized)
-    private let description = Text(Lorem.sentences(3))
-    
     var body: some View {
         let pagerView = SwiftUIPagerView(pages: self.pages) { index in
             withAnimation { self.currentIndex = index }
@@ -23,23 +20,29 @@ struct ExchangeView: View {
         return Screen(color: .background) {
             VStack {
                 self.title
-                    .font(.subheadline)
-                    .foregroundColor(.textColor)
-                    .lineLimit(1)
-                    .padding(.top, 60)
-                    .padding(.horizontal)
-                
                 self.description
-                    .font(.body)
-                    .foregroundColor(.contrastInformationColor)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(Edge.Set.all.subtracting(.bottom))
-                
                 pagerView.frame(height: 350)
                 PageControl(pagesCount: 4, index: self.$currentIndex)
                 Spacer()
             }
         }
+    }
+    
+    private var title: some View {
+        Text(Lorem.words(3).capitalized)
+            .font(.subheadline)
+            .foregroundColor(.textColor)
+            .lineLimit(1)
+            .padding(.top, 40)
+            .padding(.horizontal)
+    }
+    
+    private var description: some View {
+        Text(Lorem.sentences(3))
+            .font(.body)
+            .foregroundColor(.contrastInformationColor)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.all)
     }
     
     private var pages: [Page] {

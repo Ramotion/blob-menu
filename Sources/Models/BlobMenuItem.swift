@@ -1,5 +1,5 @@
 //
-//  MenuItem.swift
+//  BlobMenuItem.swift
 //  BlobMenu
 //
 //  Created by Igor K. on 29.04.2020.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public struct MenuItem: Identifiable, Hashable {
+public struct BlobMenuItem: Identifiable, Hashable {
     
     public let id = UUID()
     public let selectedIcon: Image

@@ -13,7 +13,7 @@ struct CommerceView: View {
         Screen(color: .background) {
             VStack {
                 self.avatar
-                self.name
+                self.title
                 self.info
             }
         }
@@ -30,7 +30,7 @@ struct CommerceView: View {
         }
     }
     
-    private var name: some View {
+    private var title: some View {
         Text(Lorem.words(3).capitalized)
             .font(.subheadline)
             .foregroundColor(.textColor)

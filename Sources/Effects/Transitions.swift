@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 extension AnyTransition {
-    static var blobMenuItem: AnyTransition {
+    static var blobBlobMenuItem: AnyTransition {
         return AnyTransition.scale.combined(with: AnyTransition.rotation)
             .animation(.easeOut(duration: 0.35))
     }

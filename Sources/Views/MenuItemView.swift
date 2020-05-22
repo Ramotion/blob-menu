@@ -1,5 +1,5 @@
 //
-//  MenuItemView.swift
+//  BlobMenuItemView.swift
 //  BlobMenu
 //
 //  Created by Igor K. on 29.04.2020.
@@ -9,9 +9,9 @@
 import Foundation
 import SwiftUI
 
-public struct MenuItemView: View {
+public struct BlobMenuItemView: View {
     
-    let item: MenuItem
+    let item: BlobMenuItem
     let isSelected: Bool
     let isOpened: Bool
     let selectionColor: Color
@@ -31,7 +31,7 @@ public struct MenuItemView: View {
         let image = isSelected ? item.selectedIcon : item.unselectedIcon
         return image
             .offset(item.offset)
-            .transition(AnyTransition.blobMenuItem)
+            .transition(AnyTransition.blobBlobMenuItem)
     }
     
     private var selectionView: some View {
@@ -58,7 +58,7 @@ public struct MenuItemView: View {
 
 
 //MARK: - Theme
-extension MenuItemView {
+extension BlobMenuItemView {
     enum Theme {
         static let size = CGSize(uniform: 60)
         static let contentInsets: CGFloat = 15
