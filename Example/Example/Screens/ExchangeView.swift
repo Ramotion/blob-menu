@@ -16,17 +16,18 @@ struct ExchangeView: View {
     private let description = Text(Lorem.sentences(3))
     
     var body: some View {
-        Screen(color: .white) {
+        Screen(color: .background) {
             VStack {
                 self.title
                     .font(.subheadline)
+                    .foregroundColor(.textColor)
                     .lineLimit(1)
                     .padding(.top, 80)
                     .padding(.horizontal)
                 
                 self.description
                     .font(.body)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.contrastInformationColor)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.all)
                 
@@ -47,12 +48,11 @@ struct Page: View, Identifiable {
     let id = UUID()
     
     var body: some View {
-        Color.white
+        Color.background
             .clipShape(RoundedRectangle(cornerRadius: 8))
-            .overlay(RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray, lineWidth: 0.5))
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.stroke, lineWidth: 0.5))
             .frame(height: 300)
-            .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
+            .shadow(color: Color.shadow, radius: 7, y: 3)
             .overlay(RandomIcon().padding(), alignment: .topLeading)
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
     }

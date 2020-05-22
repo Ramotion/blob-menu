@@ -45,6 +45,7 @@ struct ExtendedScrollView: UIViewRepresentable {
         scrollView.showsHorizontalScrollIndicator = showsIndicators
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = contentInset
+        scrollView.contentOffset = .zero
         
         let constraints: [NSLayoutConstraint]
         switch axis {

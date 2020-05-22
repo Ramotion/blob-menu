@@ -13,13 +13,14 @@ struct StocksView: View {
     @Binding var isDragging: Bool
     
     var body: some View {
-        Screen(color: .white) {
+        Screen(color: .background) {
             ExtendedScrollView(isDragging: self.$isDragging, contentInset: Theme.contentInset) {
                 VStack(spacing: Theme.padding) {
                     self.verticalCollection
                     self.horizontalCollection
                     self.verticalCollection
                 }
+                .background(Color.background)
             }
         }
     }
@@ -27,28 +28,29 @@ struct StocksView: View {
     private var verticalCollection: some View {
         GridStack(columns: 4, rows: 2, spacing: Theme.padding) { row, col in
             self.cell(size: Theme.cellSize)
-        }
+                .overlay(RandomIcon().padding(), alignment: .topLeading)
+        }.background(Color.background)
     }
     
     private var horizontalCollection: some View {
         ExtendedScrollView(axis: .horizontal, isDragging: $isDragging, contentInset: Theme.horizontalContentInset) {
             HStack(spacing: Theme.padding) {
                 ForEach(0..<10) { index in
-                    self.cell(size: Theme.horizontalCellSize).padding(.vertical, 20)
+                    self.cell(size: Theme.horizontalCellSize)
+                        .padding(.vertical, 20)
+                        .overlay(RandomIcon())
                 }
-            }
-        }.frame(height: Theme.horizontalCellSize.height + 40)
+            }.background(Color.background)
+        }
+        .frame(height: Theme.horizontalCellSize.height + 40)
     }
     
     private func cell(size: CGSize) -> some View {
-        ZStack {
-            Color.white
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 0.5))
-                .frame(size: size)
-                .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
-            RandomIcon()
-        }
+        Color.background
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.stroke, lineWidth: 0.5))
+            .frame(size: size)
+            .shadow(color: Color.shadow, radius: 7, y: 3)
     }
 }
 

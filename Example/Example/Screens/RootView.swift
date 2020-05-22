@@ -28,6 +28,7 @@ struct RootView: View {
             screenView.edgesIgnoringSafeArea(Edge.Set.all.subtracting(.top))
             menuView.opacity(isDragging ? 0.1 : 1)
         }
+        .background(Color.background)
     }
     
     private var screenView: some View {

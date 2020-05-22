@@ -14,11 +14,11 @@ struct WalletView: View {
     @Binding var isDragging: Bool
     
     var body: some View {
-        Screen(color: .white) {
+        Screen(color: .background) {
             ExtendedScrollView(isDragging: self.$isDragging, contentInset: Theme.contentInset) {
                 ForEach(0..<10) { index in
                     ItemCell()
-                }
+                }.background(Color.background)
             }
         }
     }
@@ -36,19 +36,20 @@ private struct ItemCell: View {
                 .overlay(RandomIcon().padding(), alignment: .topLeading)
             Text(Lorem.words(3).capitalized)
                 .font(.subheadline)
+                .foregroundColor(.textColor)
                 .lineLimit(1)
                 .padding(Edge.Set.all.subtracting(.bottom))
             Text(Lorem.paragraph)
                 .font(.body)
-                .foregroundColor(.gray)
+                .foregroundColor(.contrastInformationColor)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.all)
         }
-        .background(Color.white)
+        .background(Color.background)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .overlay(RoundedRectangle(cornerRadius: 8)
-        .stroke(Color.gray, lineWidth: 0.5))
-        .shadow(color: Color(white: 0, opacity: 0.2), radius: 7, y: 3)
+        .stroke(Color.stroke, lineWidth: 0.5))
+        .shadow(color: Color.shadow, radius: 7, y: 3)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
     }
 }
