@@ -32,7 +32,7 @@ struct PageControl: View {
         ZStack {
             HStack(spacing: spacing) {
                 ForEach(0..<pagesCount) { i in
-                    Circle().fill(Color.black.opacity(self.index == i ? 1 : 0.3))
+                    Circle().fill(Color.contrast.opacity(self.index == i ? 1 : 0.3))
                 }
             }
             .frame(size: size)
@@ -40,7 +40,7 @@ struct PageControl: View {
             
             Circle()
                 .offset(CGPoint(x: getCenteredXPosition(for: self.index), y: 0))
-                .fill(Color.black)
+                .fill(Color.contrast)
                 .frame(size: size)
         }
     }

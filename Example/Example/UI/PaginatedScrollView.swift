@@ -4,11 +4,17 @@ import SwiftUI
 
 struct SwiftUIPagerView<Content: View & Identifiable>: View {
 
-    @Binding var index: Int
+    @State private var index: Int = 0
     @State private var offset: CGFloat = 0
+    
+    private let pages: [Content]
+    private let indexChanged: (Int) -> Void
 
-    var pages: [Content]
-
+    init(pages: [Content], indexChanged: @escaping (Int) -> Void) {
+        self.pages = pages
+        self.indexChanged = indexChanged
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false) {
@@ -30,6 +36,7 @@ struct SwiftUIPagerView<Content: View & Identifiable>: View {
                         var nextIndex: Int = (value.predictedEndTranslation.width < 0) ? 1 : -1
                         nextIndex += self.index
                         self.index = nextIndex.limited(min: 0, max: self.pages.endIndex - 1)
+                        self.indexChanged(nextIndex)
                     }
                     withAnimation { self.offset = -geometry.size.width * CGFloat(self.index) }
                 })
