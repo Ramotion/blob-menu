@@ -33,6 +33,7 @@
 		393AAEB5246053B60059752A /* CommonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393AAE9D246053B50059752A /* CommonUtilities.swift */; };
 		39484546247823ED0046236D /* BlobMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39484545247823ED0046236D /* BlobMenuModel.swift */; };
 		398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */; };
+		39A635A02478843A007946A6 /* BlobMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A6359F2478843A007946A6 /* BlobMenuConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		393AAE9D246053B50059752A /* CommonUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilities.swift; sourceTree = "<group>"; };
 		39484545247823ED0046236D /* BlobMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobMenuModel.swift; sourceTree = "<group>"; };
 		398270BC2474B93100BB7A2B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
+		39A6359F2478843A007946A6 /* BlobMenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobMenuConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				393AAE86246053B50059752A /* Views */,
+				39A6359E2478841F007946A6 /* Configuration */,
+				393AAE83246053B50059752A /* Models */,
 				393AAE81246053B50059752A /* Effects */,
 				393AAE8E246053B50059752A /* Extensions */,
-				393AAE83246053B50059752A /* Models */,
 				393AAE95246053B50059752A /* Utilities */,
 				3908002624474A3800E7727C /* BlobMenu.h */,
 				3908002724474A3800E7727C /* Info.plist */,
@@ -133,7 +136,6 @@
 				393AAE8C246053B50059752A /* StickyPathGenerator.swift */,
 				393AAE88246053B50059752A /* HamburgerView.swift */,
 				393AAE89246053B50059752A /* MenuItemView.swift */,
-				393AAE8D246053B50059752A /* Theme.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +167,15 @@
 				393AAE9D246053B50059752A /* CommonUtilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		39A6359E2478841F007946A6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				393AAE8D246053B50059752A /* Theme.swift */,
+				39A6359F2478843A007946A6 /* BlobMenuConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 				39484546247823ED0046236D /* BlobMenuModel.swift in Sources */,
 				398270BD2474B93100BB7A2B /* CGRect+Extensions.swift in Sources */,
 				393AAEA0246053B60059752A /* BlobMenuItem.swift in Sources */,
+				39A635A02478843A007946A6 /* BlobMenuConfiguration.swift in Sources */,
 				393AAEAA246053B60059752A /* UIWindow+Extensions.swift in Sources */,
 				393AAEB2246053B60059752A /* Then.swift in Sources */,
 				393AAEA7246053B60059752A /* Theme.swift in Sources */,

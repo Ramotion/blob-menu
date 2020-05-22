@@ -1,8 +1,8 @@
 //
 //  Theme.swift
-//  Example
+//  BlobMenu
 //
-//  Created by Igor K. on 22.05.2020.
+//  Created by Igor K. on 16.04.2020.
 //  Copyright © 2020 Ramotion. All rights reserved.
 //
 
@@ -10,21 +10,14 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let lightGray = Color(#colorLiteral(red: 0.899865165, green: 0.899865165, blue: 0.899865165, alpha: 1))
     
-    static var background: Color {
+    static var hamburgerColor: Color {
         return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) })
     }
     
-    static var contrast: Color {
+    static var backgroundColor: Color {
         return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.9705940673, green: 0.9705940673, blue: 0.9705940673, alpha: 1) : #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) })
     }
     
-    static var shadow: Color { contrast.opacity(0.2) }
-    static var stroke = Color.gray
-    
-    static var textColor: Color { contrast }
-    static var bodyTextColor: Color { contrast }
-    static var informationColor: Color { background.opacity(0.6) }
-    static var contrastInformationColor: Color { contrast.opacity(0.6) }
+    static let selectionColor = Color(#colorLiteral(red: 0.9983773828, green: 0.7375702262, blue: 0.1739521325, alpha: 1))
 }

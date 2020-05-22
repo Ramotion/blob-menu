@@ -64,7 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		390800372447D01D00E7727C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		390800372447D01D00E7727C /* Blob Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blob Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3908003A2447D01D00E7727C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3908003C2447D01D00E7727C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3908003E2447D01D00E7727C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		390800382447D01D00E7727C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				390800372447D01D00E7727C /* Example.app */,
+				390800372447D01D00E7727C /* Blob Menu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			);
 			name = Example;
 			productName = Example;
-			productReference = 390800372447D01D00E7727C /* Example.app */;
+			productReference = 390800372447D01D00E7727C /* Blob Menu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -472,7 +472,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Blob Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -492,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Blob Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

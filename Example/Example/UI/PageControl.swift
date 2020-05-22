@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-
 struct PageControl: View {
     
     @Binding private var index: Int

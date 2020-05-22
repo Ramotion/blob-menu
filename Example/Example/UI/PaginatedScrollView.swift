@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-
 struct SwiftUIPagerView<Content: View & Identifiable>: View {
 
     @State private var index: Int = 0

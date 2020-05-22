@@ -9,7 +9,6 @@
 import Foundation
 import SwiftUI
 
-
 public struct GridStack<Content: View>: View {
     let columns: Int
     let rows: Int

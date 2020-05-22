@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-
 struct TouchGestureViewModifier: ViewModifier {
     let touchBegan: () -> Void
     let touchEnd: (_ success: Bool) -> Void

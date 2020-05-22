@@ -9,7 +9,6 @@
 import Foundation
 import SwiftUI
 
-
 struct RandomIcon: View {
     
     var body: some View {
