@@ -1,0 +1,71 @@
+//
+//  ExchangeView.swift
+//  Example
+//
+//  Created by Igor K. on 20.05.2020.
+//  Copyright © 2020 Ramotion. All rights reserved.
+//
+
+import SwiftUI
+
+struct ExchangeView: View {
+    
+    @State private var currentIndex: Int = 0
+    
+    var body: some View {
+        let pagerView = SwiftUIPagerView(pages: self.pages) { index in
+            withAnimation { self.currentIndex = index }
+        }
+        
+        return Screen(color: .background) {
+            VStack {
+                self.title
+                self.description
+                pagerView.frame(height: 350)
+                PageControl(pagesCount: 4, index: self.$currentIndex)
+                Spacer()
+            }
+        }
+    }
+    
+    private var title: some View {
+        Text(Lorem.words(3).capitalized)
+            .font(.subheadline)
+            .foregroundColor(.textColor)
+            .lineLimit(1)
+            .padding(.top, 40)
+            .padding(.horizontal)
+    }
+    
+    private var description: some View {
+        Text(Lorem.sentences(3))
+            .font(.body)
+            .foregroundColor(.contrastInformationColor)
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.all)
+    }
+    
+    private var pages: [Page] {
+        return (0..<4).map { index in Page() }
+    }
+}
+
+struct Page: View, Identifiable {
+    let id = UUID()
+    
+    var body: some View {
+        Color.background
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.stroke, lineWidth: 0.5))
+            .frame(height: 300)
+            .shadow(color: Color.shadow, radius: 7, y: 3)
+            .overlay(RandomIcon().padding(), alignment: .topLeading)
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+    }
+}
+
+struct ExchangeView_Previews: PreviewProvider {
+    static var previews: some View {
+        ExchangeView()
+    }
+}
