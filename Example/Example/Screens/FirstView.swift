@@ -24,7 +24,7 @@ struct FirstView: View {
     private var title: some View {
         Text("SwiftUI Blob Menu")
             .font(.subheadline)
-            .foregroundColor(.textColor)
+            .foregroundColor(.contrastTextColor)
             .lineLimit(1)
             .padding(40)
     }

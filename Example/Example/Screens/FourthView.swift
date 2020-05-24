@@ -17,7 +17,7 @@ struct FourthView: View {
         
         return Screen(color: .background) {
             ExtendedScrollView(isDragging: self.$isDragging, contentInset: insets) {
-                ItemCell()
+                ItemCell().background(Color.background)
             }
         }
     }
@@ -34,12 +34,12 @@ private struct ItemCell: View {
                 .overlay(Image("Logo"))
             Text("Drag scroll view")
                 .font(.subheadline)
-                .foregroundColor(.textColor)
+                .foregroundColor(Color.black)
                 .lineLimit(1)
                 .padding(Edge.Set.all.subtracting(.bottom))
             Text("This is example how you can hide menu during user is interacting with other UI.")
                 .font(.footnote)
-                .foregroundColor(.contrastInformationColor)
+                .foregroundColor(Color.black.opacity(0.6))
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.trailing, 60)
                 .padding(Edge.Set.all.subtracting(.trailing))

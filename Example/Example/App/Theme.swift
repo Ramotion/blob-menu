@@ -23,8 +23,8 @@ extension Color {
     static var shadow: Color { contrast.opacity(0.2) }
     static var stroke = Color.gray
     
-    static var textColor: Color { contrast }
-    static var bodyTextColor: Color { contrast }
+    static var textColor: Color { background }
+    static var contrastTextColor: Color { contrast }
     static var informationColor: Color { background.opacity(0.6) }
     static var contrastInformationColor: Color { contrast.opacity(0.6) }
 }
