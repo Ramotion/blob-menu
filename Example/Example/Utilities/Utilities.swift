@@ -67,34 +67,3 @@ struct RotationAroundModifier: ViewModifier {
             .animation(.interpolatingSpring(stiffness: 150, damping: 17))
     }
 }
-
-
-extension View {
-    var scaleOnTap: some View {
-        self.modifier(TapScaleModifier())
-    }
-}
-
-struct TapScaleModifier: ViewModifier {
-    
-    @State private var scaleValue: CGFloat = 1
-    
-    func body(content: Content) -> some View {
-        content
-        .scaleEffect(self.scaleValue)
-        .onTouchGesture(
-            touchBegan: { withAnimation { self.scaleValue = 1.05 } },
-            touchEnd: { _ in withAnimation { self.scaleValue = 1.0 } }
-        )
-    }
-}
-
-extension UIEdgeInsets {
-    public init(uniform value: CGFloat) {
-        self.init(top: value, left: value, bottom: value, right: value)
-    }
-    
-    public init(horizontal h: CGFloat, vertical v: CGFloat) {
-        self.init(top: v, left: h, bottom: v, right: h)
-    }
-}
