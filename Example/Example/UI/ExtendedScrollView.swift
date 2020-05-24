@@ -30,6 +30,7 @@ struct ExtendedScrollView: UIViewRepresentable {
     init<Content: View>(axis: Axis = .vertical,
                         isDragging: Binding<Bool> = .constant(false),
                         showsIndicators: Bool = false,
+                        alwaysBounce: Bool = true,
                         contentInset: UIEdgeInsets = .zero,
                         @ViewBuilder content: () -> Content) {
         
@@ -50,6 +51,8 @@ struct ExtendedScrollView: UIViewRepresentable {
         let constraints: [NSLayoutConstraint]
         switch axis {
         case .horizontal:
+            scrollView.alwaysBounceHorizontal = alwaysBounce
+            
             constraints = [
                 hosting.view.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
                 hosting.view.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
@@ -58,6 +61,8 @@ struct ExtendedScrollView: UIViewRepresentable {
                 hosting.view.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
             ]
         case .vertical:
+            scrollView.alwaysBounceVertical = alwaysBounce
+            
             constraints = [
                 hosting.view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
                 hosting.view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),

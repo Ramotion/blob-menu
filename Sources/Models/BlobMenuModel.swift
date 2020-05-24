@@ -11,7 +11,7 @@ import SwiftUI
 
 public final class BlobMenuModel: ObservableObject {
     @Published public var items: [BlobMenuItem]
-    @Published public var isOpened: Bool
+    @Published public internal(set) var isOpened: Bool
     @Published public internal(set) var selectedIndex: Int
     @Published public internal(set) var isBlobMenuItemsVisible: Bool = false
     
@@ -27,5 +27,14 @@ public final class BlobMenuModel: ObservableObject {
     public func selectIndex(_ index: Int) {
         let limitedIndex = selectedIndex.limited(0, items.count - 1)
         selectedIndex = limitedIndex
+    }
+    
+    public func closeMenu() {
+        isOpened = false
+        isBlobMenuItemsVisible = false
+    }
+    
+    public func openMenu() {
+        withAnimation { self.isOpened = true }
     }
 }

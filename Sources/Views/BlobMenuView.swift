@@ -20,8 +20,7 @@ public struct BlobMenuView: View {
         self.configuration = configuration
         
         UIWindow.current?.addGesture(type: .tap) {[weak model] _ in
-            model?.isBlobMenuItemsVisible = false
-            model?.isOpened = false
+            model?.closeMenu()
         }
     }
     
