@@ -8,16 +8,16 @@
 
 import SwiftUI
 
-public struct HamburgerView: View {
+struct HamburgerView: View {
         
-    public let isOpened: Bool
-    public let color: Color
+    let isOpened: Bool
+    let color: Color
     
     private var rotationAngle: Angle {
         return Angle(degrees: isOpened ? -90 : 0)
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .center, spacing: Theme.lineSpacing) {
             line
             line

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public final class StickyPathGenerator {
+final class StickyPathGenerator {
     
     static let `default` = StickyPathGenerator()
     
@@ -67,10 +67,10 @@ public final class StickyPathGenerator {
     private var storedBasePointA: CGPoint?
     private var storedBasePointB: CGPoint?
     
-    public func generatePath(baseRect: CGRect,
-                             figureRect: CGRect,
-                             figureCornerRadius: CGFloat,
-                             avulsionDistance: CGFloat) -> CGPath {
+    func generatePath(baseRect: CGRect,
+                      figureRect: CGRect,
+                      figureCornerRadius: CGFloat,
+                      avulsionDistance: CGFloat) -> CGPath {
         
         let input = Input(baseRect: baseRect, figureRect: figureRect, figureCornerRadius: figureCornerRadius, avulsionDistance: avulsionDistance)
         

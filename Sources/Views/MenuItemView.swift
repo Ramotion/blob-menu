@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public struct BlobMenuItemView: View {
+struct BlobMenuItemView: View {
     
     let item: BlobMenuItem
     let isSelected: Bool

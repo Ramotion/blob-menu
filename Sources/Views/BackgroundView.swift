@@ -14,7 +14,6 @@ struct BackgroundPreferenceData {
     let bounds: Anchor<CGRect>
 }
 
-
 struct BackgroundPreferenceKey: PreferenceKey {
     typealias Value = [BackgroundPreferenceData]
     
@@ -24,7 +23,6 @@ struct BackgroundPreferenceKey: PreferenceKey {
         value.append(contentsOf: nextValue())
     }
 }
-
 
 struct BackgroundView: View {
     

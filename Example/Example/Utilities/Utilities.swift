@@ -9,47 +9,13 @@
 import Foundation
 import SwiftUI
 
-extension Color {
-    static var random: Color {
-        return Color(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1)
-        )
-    }
-}
 
-extension UIWindow {
-    
-    static var safeInsets: UIEdgeInsets {
-        return current?.safeAreaInsets ?? UIEdgeInsets(top: 44, left: 0, bottom: 34, right: 0)
-    }
-        
-    static var isFullScreen: Bool {
-        return current?.frame == UIScreen.main.bounds
-    }
-}
-
-
-extension View {
-    public func greedyFrame(alignment: Alignment) -> some View {
-        return self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
-    }
-}
-
-
-extension Binding where Value: BindingAnimatable {
-    var animatable: Binding<Value>  {
-        return Binding<Value>(get: { return self.wrappedValue },
+extension Binding where Value == Bool {
+    var animatable: Binding<Bool>  {
+        return Binding<Bool>(get: { return self.wrappedValue },
                               set: { b in withAnimation { self.wrappedValue = b } })
     }
 }
-
-protocol BindingAnimatable { }
-
-extension Bool: BindingAnimatable { }
-extension Int: BindingAnimatable { }
-
 
 extension View {
     var rotateAroundOnTap: some View {

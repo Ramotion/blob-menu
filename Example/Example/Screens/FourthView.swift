@@ -13,7 +13,7 @@ struct FourthView: View {
     @Binding var isDragging: Bool
     
     var body: some View {
-        let insets = UIEdgeInsets(top: 20, left: 0, bottom: UIWindow.safeInsets.bottom + 20, right: 0)
+        let insets = UIEdgeInsets(top: 20, left: 0, bottom: 60, right: 0)
         
         return Screen(color: .background) {
             ExtendedScrollView(isDragging: self.$isDragging, contentInset: insets) {

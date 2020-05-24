@@ -10,7 +10,7 @@ import Foundation
 
 extension Collection {
     
-    public func enumeratedArray() -> Array<(offset: Int, element: Self.Element)> {
+    func enumeratedArray() -> Array<(offset: Int, element: Self.Element)> {
         return Array(self.enumerated())
     }
 }

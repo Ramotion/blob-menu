@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public extension UIWindow {
+extension UIWindow {
      
     static var current: UIWindow? {
         //if scene is not connected will use first normal level key window
