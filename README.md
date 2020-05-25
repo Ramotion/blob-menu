@@ -38,14 +38,20 @@ ___
 You can install `blob-menu` in several ways:
 
 - Add source files to your project.
+
 <br>
+
 - Use [Swift Package Manager](https://swift.org/package-manager/).
+
 <br>
+
 - Use [CocoaPods](https://cocoapods.org):
 ``` ruby
 pod 'blob-menu'
 ```
+
 <br>
+
 - Use [Carthage](https://github.com/Carthage/Carthage):
 ```
 github "Ramotion/blob-menu"
@@ -59,6 +65,7 @@ github "Ramotion/blob-menu"
 2. Use menu items to create menu model `BlobMenuModel`. 
 
 `public init(items: [BlobMenuItem], selectedIndex: Int = 0, isOpened: Bool = false)`
+
 3. In final step: use menu model to initialize `BlobMenuView`. This view you can use in your layout.  
 
 ### Example 
