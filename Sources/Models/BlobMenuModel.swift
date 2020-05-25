@@ -25,7 +25,7 @@ public final class BlobMenuModel: ObservableObject {
     }
     
     public func selectIndex(_ index: Int) {
-        let limitedIndex = selectedIndex.limited(0, items.count - 1)
+        let limitedIndex = index.limited(0, items.count - 1)
         selectedIndex = limitedIndex
     }
     

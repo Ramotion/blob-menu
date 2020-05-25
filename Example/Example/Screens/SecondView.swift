@@ -23,13 +23,16 @@ struct SecondView: View {
                 HStack(spacing: 50) {
                     Button("Close") { self.menuModel.closeMenu() }
                     Button("Open") { self.menuModel.openMenu() }
-                }.padding(.top, 40)
+                }.padding(40)
+                Button("Select next") { self.menuModel.selectIndex(2) }
+                Spacer()
             }
+            .frame(maxHeight: 400)
         }
     }
     
     private var title: some View {
-        Text("SwiftUI Blob Menu")
+        Text("Menu model")
             .font(.subheadline)
             .foregroundColor(.contrastTextColor)
             .lineLimit(1)
@@ -37,7 +40,7 @@ struct SecondView: View {
     }
     
     private var info: some View {
-        Text("Also menu can be oppened and closed programmatically.")
+        Text("Also menu can be oppened and closed programmatically. Or switch selected index")
             .font(.footnote)
             .foregroundColor(.contrastInformationColor)
             .fixedSize(horizontal: false, vertical: true)

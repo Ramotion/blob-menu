@@ -17,7 +17,9 @@ struct FirstView: View {
                 logo
                 self.title
                 self.info
+                Spacer()
             }
+            .frame(maxHeight: 400)
         }
     }
     

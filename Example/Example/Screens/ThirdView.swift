@@ -24,12 +24,14 @@ struct ThirdView: View {
                     Button("Remove") { self.menuModel.items = BlobMenuItem.standard }
                     Button("Add") { self.menuModel.items = BlobMenuItem.extended }
                 }.padding(.top, 40)
+                Spacer()
             }
+            .frame(maxHeight: 400)
         }
     }
     
     private var title: some View {
-        Text("SwiftUI Blob Menu")
+        Text("Menu items")
             .font(.subheadline)
             .foregroundColor(.contrastTextColor)
             .lineLimit(1)
