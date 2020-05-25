@@ -16,7 +16,7 @@ var logo: some View {
             .overlay(Circle().stroke(Color.stroke, lineWidth: 0.5))
             .frame(size: CGSize(uniform: 60))
             .shadow(color: Color.shadow, radius: 7, y: 3)
-        Image("Logo")
+        Image("SmallLogo")
             .resizable()
             .frame(size: CGSize(uniform: 50))
     }.rotateAroundOnTap
