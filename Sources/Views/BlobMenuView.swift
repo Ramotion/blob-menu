@@ -105,7 +105,8 @@ public struct BlobMenuView: View {
                     isOpened: self.viewModel.isBlobMenuItemsVisible,
                     selectionColor: self.configuration.selectionColor)
                 .onTapGesture {
-                    self.viewModel.selectedIndex = index
+                    guard self.viewModel.selectedIndex != index else { return }
+                    self.viewModel.selectIndex(index)
                 }
             }
         }
