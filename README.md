@@ -23,6 +23,7 @@ ___
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/blob-menu)
 [![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-blob-menu)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
 
 
@@ -37,6 +38,10 @@ ___
 You can install `blob-menu` in several ways:
 
 - Add source files to your project.
+
+<br>
+
+- Use [Swift Package Manager](https://swift.org/package-manager/).
 
 <br>
 
@@ -56,7 +61,43 @@ github "Ramotion/blob-menu"
 
 ### Blob Menu
 
-Take a look at the `Example` project for an integration example.
+1. Create several menu items. You need to provide at least one image icon to initialize `BlobMenuItem`.    
+2. Use menu items to create menu model `BlobMenuModel`. 
+`public init(items: [BlobMenuItem], selectedIndex: Int = 0, isOpened: Bool = false)`
+3. In final step: use menu model to initialize `BlobMenuView`. This view you can use in your layout.  
+
+### Example 
+```
+extension BlobMenuItem {
+    static let all = [
+        BlobMenuItem(icon: <#Image#>),
+        BlobMenuItem(icon: <#Image#>),
+        BlobMenuItem(icon: <#Image#>),
+        BlobMenuItem(icon: <#Image#>)
+    ]
+}
+
+struct ContentView: View {
+    
+    @ObservedObject private var model = BlobMenuModel(items:  BlobMenuItem.all)
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            BlobMenuView(model: model).padding(.bottom, 30)
+        }
+    }
+}
+```
+
+### Configuration
+
+To configure additional menu parameters use custom `BlobMenuConfiguration` in `BlobMenuView` init method.
+
+`public init(model: BlobMenuModel, configuration: BlobMenuConfiguration = .default)`
+
+Right now we provide only color parameters. If you have ideas what also should be configurable, please create issue with `suggestion` label.
+For more integration details please take a look at the `Example` project.
 
 ## 📄 License
 

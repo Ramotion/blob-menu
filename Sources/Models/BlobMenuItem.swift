@@ -25,6 +25,12 @@ public struct BlobMenuItem: Identifiable, Hashable {
         self.offset = offset
     }
     
+    public init(icon: Image, offset: CGPoint = .zero) {
+        self.selectedIcon = icon
+        self.unselectedIcon = icon
+        self.offset = offset
+    }
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
