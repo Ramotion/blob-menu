@@ -32,7 +32,7 @@ struct FirstView: View {
     }
     
     private var info: some View {
-        Text("Open menu by tapping on hamburger. To close menu just tap outside. In this example by tapping on menu you will switch screen view, but it can be used for other purposes. In code you can update configuration to close menu after item has been selected.")
+        Text("Open the menu by tapping on the hamburger. To close the menu, just tap outside. In this example, by tapping on the menu you will switch the screen view, but it can be used for other purposes. In code you can update the configuration to the close menu after item has been selected.")
             .font(.footnote)
             .foregroundColor(.contrastInformationColor)
             .fixedSize(horizontal: false, vertical: true)

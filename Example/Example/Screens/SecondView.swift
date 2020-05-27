@@ -40,7 +40,7 @@ struct SecondView: View {
     }
     
     private var info: some View {
-        Text("Also menu can be oppened and closed programmatically. Or switch selected index")
+        Text("Also, the menu can be opened and closed programmatically. Or switch the selected index")
             .font(.footnote)
             .foregroundColor(.contrastInformationColor)
             .fixedSize(horizontal: false, vertical: true)

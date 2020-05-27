@@ -37,7 +37,7 @@ private struct ItemCell: View {
                 .foregroundColor(Color.black)
                 .lineLimit(1)
                 .padding(Edge.Set.all.subtracting(.bottom))
-            Text("This is example how you can hide menu during user is interacting with other UI.")
+            Text("This is example shows how you can hide the menu while the user is interacting with other UI.")
                 .font(.footnote)
                 .foregroundColor(Color.black.opacity(0.6))
                 .fixedSize(horizontal: false, vertical: true)

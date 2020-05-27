@@ -39,7 +39,7 @@ struct ThirdView: View {
     }
     
     private var info: some View {
-        Text("Menu supports dynamically items count update. If UI can't be layout to show all items simultaneously they will be wrapperd in scroll view.")
+        Text("The menu supports dynamically updating item count. If the UI layout can’t to show all items simultaneously, they will be wrapped in a scroll view.")
             .font(.footnote)
             .foregroundColor(.contrastInformationColor)
             .fixedSize(horizontal: false, vertical: true)
