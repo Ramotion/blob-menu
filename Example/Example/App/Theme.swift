@@ -10,21 +10,22 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let lightGray = Color(#colorLiteral(red: 0.899865165, green: 0.899865165, blue: 0.899865165, alpha: 1))
     
     static var background: Color {
-        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) })
+        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1) })
     }
     
-    static var contrast: Color {
-        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.9705940673, green: 0.9705940673, blue: 0.9705940673, alpha: 1) : #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) })
+    static var cardBackgound: Color {
+        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.2470277846, green: 0.2470766604, blue: 0.2470246851, alpha: 1) : #colorLiteral(red: 0.9998916984, green: 1, blue: 0.9998809695, alpha: 1) })
     }
     
-    static var shadow: Color { contrast.opacity(0.2) }
-    static var stroke = Color.gray
+    static var shadow: Color = Color.black.opacity(0.25)
+
+    static var contrastTextColor: Color {
+        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.9528377652, green: 0.9530007243, blue: 0.9528275132, alpha: 1) : #colorLiteral(red: 0.1960526407, green: 0.1960932612, blue: 0.1960500479, alpha: 1) })
+    }
     
-    static var textColor: Color { background }
-    static var contrastTextColor: Color { contrast }
-    static var informationColor: Color { background.opacity(0.6) }
-    static var contrastInformationColor: Color { contrast.opacity(0.6) }
+    static var contrastInformationColor: Color {
+        return Color(UIColor { $0.userInterfaceStyle == .dark ? #colorLiteral(red: 0.7371736169, green: 0.7373017669, blue: 0.7371655703, alpha: 1) : #colorLiteral(red: 0.5175882578, green: 0.517680943, blue: 0.5175824165, alpha: 1) })
+    }
 }

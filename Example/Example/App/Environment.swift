@@ -24,23 +24,23 @@ struct MenuEnvironmentKey: EnvironmentKey {
 
 extension BlobMenuItem {
     static let standard: [BlobMenuItem] = [
-        BlobMenuItem(selectedIcon: Image.walletSelected, unselectedIcon: Image.walletUnselected, offset: CGPoint(x: 1, y: -2)),
-        BlobMenuItem(selectedIcon: Image.exchangeSelected, unselectedIcon: Image.exchangeUnselected),
-        BlobMenuItem(selectedIcon: Image.bitcoinSelected, unselectedIcon: Image.bitcoinUnselected),
+        BlobMenuItem(selectedIcon: Image.calendarSelected, unselectedIcon: Image.calendarUnselected),
+        BlobMenuItem(selectedIcon: Image.chatSelected, unselectedIcon: Image.chatUnselected),
+        BlobMenuItem(selectedIcon: Image.favoriteSelected, unselectedIcon: Image.favoriteUnselected),
     ]
     
     static let extended: [BlobMenuItem] =
-        standard + [BlobMenuItem(selectedIcon: Image.gridSelected, unselectedIcon: Image.gridUnselected)]
+        standard + [BlobMenuItem(selectedIcon: Image.profileSelected, unselectedIcon: Image.profileUnselected)]
 }
 
 
 extension Image {
-    static let walletSelected = Image("Icon_Wallet_black")
-    static let walletUnselected = Image("Icon_Wallet_gray")
-    static let bitcoinSelected = Image("Icon_Bitcoin_black")
-    static let bitcoinUnselected = Image("Icon_Bitcoin_gray")
-    static let exchangeSelected = Image("Icon_Exchange_black")
-    static let exchangeUnselected = Image("Icon_Exchange_gray")
-    static let gridSelected = Image("Icon_Grid_black")
-    static let gridUnselected = Image("Icon_Grid_gray")
+    static let calendarSelected = Image("Icon_Calendar_selected")
+    static let calendarUnselected = Image("Icon_Calendar_unselected")
+    static let chatSelected = Image("Icon_Chat_selected")
+    static let chatUnselected = Image("Icon_Chat_unselected")
+    static let favoriteSelected = Image("Icon_Favorite_selected")
+    static let favoriteUnselected = Image("Icon_Favorite_unselected")
+    static let profileSelected = Image("Icon_Profile_selected")
+    static let profileUnselected = Image("Icon_Profile_unselected")
 }

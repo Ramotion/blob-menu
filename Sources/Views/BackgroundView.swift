@@ -31,7 +31,6 @@ struct BackgroundView: View {
     var body: some View {
         return Rectangle()
         .fill(color)
-        .shadow(color: color.opacity(0.45), radius: 8, x: 0, y: 4)
         .anchorPreference(key: BackgroundPreferenceKey.self, value: .bounds, transform: { [BackgroundPreferenceData(bounds: $0)] })
     }
 }

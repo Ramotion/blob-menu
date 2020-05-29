@@ -50,7 +50,7 @@ struct HamburgerView_Previews: PreviewProvider {
 extension HamburgerView {
     enum Theme {
         static let lineSpacing: CGFloat = 6
-        static let lineThickness: CGFloat = 3
+        static let lineThickness: CGFloat = 2
         static let lineCornerRadius: CGFloat = 1
         static let lineWidth: CGFloat = 24
     }

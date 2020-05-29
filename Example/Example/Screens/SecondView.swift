@@ -15,35 +15,36 @@ struct SecondView: View {
     
     var body: some View {
         Screen(color: .background) {
-            VStack {
-                logo
-                self.title
-                self.info
+            VStack(alignment: .leading) {
+                
+                Image("Logo")
+                    .padding(.leading, 40)
+                
+                Text("Menu model")
+                    .font(Font.system(size: 24, weight: Font.Weight.semibold))
+                    .foregroundColor(.contrastTextColor)
+                    .lineLimit(1)
+                    .padding(.top, 110)
+                    .padding(.horizontal, 40)
+                
+                Text("Also, the menu can be opened and closed programmatically. Or switch the selected index")
+                    .font(Font.system(size: 16))
+                    .foregroundColor(.contrastInformationColor)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, 24)
+                    .padding(.horizontal, 40)
                 
                 HStack(spacing: 50) {
                     Button("Close") { self.menuModel.closeMenu() }
                     Button("Open") { self.menuModel.openMenu() }
-                }.padding(40)
-                Button("Select next") { self.menuModel.selectIndex(2) }
+                    Button("Select next") { self.menuModel.selectIndex(2) }
+                }
+                .padding(.horizontal, 40)
+                .padding(.top, 40)
+                
                 Spacer()
             }
             .frame(maxHeight: 400)
         }
-    }
-    
-    private var title: some View {
-        Text("Menu model")
-            .font(.subheadline)
-            .foregroundColor(.contrastTextColor)
-            .lineLimit(1)
-            .padding(40)
-    }
-    
-    private var info: some View {
-        Text("Also, the menu can be opened and closed programmatically. Or switch the selected index")
-            .font(.footnote)
-            .foregroundColor(.contrastInformationColor)
-            .fixedSize(horizontal: false, vertical: true)
-            .padding(.horizontal, 40)
     }
 }
