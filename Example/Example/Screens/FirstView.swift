@@ -32,8 +32,9 @@ struct FirstView: View {
                     .padding(.horizontal, 40)
                 
                 Spacer()
+                HStack { Spacer() }
             }
-            .frame(maxHeight: 400)
+            .frame(maxHeight: 500)
         }
     }
 }

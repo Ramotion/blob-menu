@@ -38,6 +38,7 @@ struct ExtendedScrollView: UIViewRepresentable {
         
         let hosting = UIHostingController(rootView: content())
         hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        hosting.view.backgroundColor = .clear
         hosting.edgesForExtendedLayout = .all
         hosting.extendedLayoutIncludesOpaqueBars = true
         
@@ -47,6 +48,7 @@ struct ExtendedScrollView: UIViewRepresentable {
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.contentInset = contentInset
         scrollView.contentOffset = .zero
+        scrollView.backgroundColor = .clear
         
         let constraints: [NSLayoutConstraint]
         switch axis {

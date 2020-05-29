@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-private let cardHeight: CGFloat = 176
+private let cardHeight: CGFloat = 146
 
 struct FourthView: View {
         
@@ -32,13 +32,12 @@ struct FourthView: View {
                         Spacer()
                     }
                 }
-                .frame(maxHeight: 400)
+                .frame(maxHeight: 500)
                 
                 ExtendedScrollView(isDragging: self.$isDragging, contentInset: insets) {
-                    ItemCell()
+                    ItemCell().background(Color.clear)
                 }
             }
-            
         }
     }
 }
@@ -50,13 +49,13 @@ private struct ItemCell: View {
             
             Text("Drag card view")
                 .font(Font.system(size: 24, weight: Font.Weight.semibold))
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.contrastTextColor)
                 .lineLimit(1)
                 .padding(Edge.Set.all.subtracting(.bottom))
             
             Text("This is example shows how you can hide the menu while the user is interacting with other UI.")
                 .font(Font.system(size: 16))
-                .foregroundColor(Color.black.opacity(0.6))
+                .foregroundColor(Color.contrastInformationColor)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.trailing, 60)
                 .padding(Edge.Set.all.subtracting(.trailing))
@@ -65,6 +64,6 @@ private struct ItemCell: View {
         .background(Color.cardBackgound)
         .clipShape(RoundedRectangle(cornerRadius: 8))
         .shadow(color: Color.shadow, radius: 7, y: 3)
-        .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+        .padding(EdgeInsets(top: 7, leading: 15, bottom: 7, trailing: 15))
     }
 }

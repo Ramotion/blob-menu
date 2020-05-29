@@ -31,7 +31,7 @@ struct RootView: View {
     var body: some View {
         ZStack {
             screenView.edgesIgnoringSafeArea(Edge.Set.all.subtracting(.top))
-            menuView.opacity(isDragging ? 0.1 : 1)
+            menuView.opacity(isDragging ? 0.05 : 1)
         }
         .background(Color.background)
     }

@@ -42,8 +42,9 @@ struct ThirdView: View {
                 .padding(.top, 40)
                 
                 Spacer()
+                HStack { Spacer() }
             }
-            .frame(maxHeight: 400)
+            .frame(maxHeight: 500)
         }
     }
 }

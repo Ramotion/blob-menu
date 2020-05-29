@@ -23,5 +23,6 @@ struct Screen<Content>: View where Content: View {
             backgoundColor.edgesIgnoringSafeArea(.all)
             content()
         }
+        .frame(size: UIScreen.main.bounds.size)
     }
 }
