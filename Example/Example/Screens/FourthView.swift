@@ -32,6 +32,7 @@ struct FourthView: View {
                         Image("Icon_Swipe")
                         Spacer()
                     }
+                    .padding(.bottom, 20)
                 }
                 .frame(maxHeight: 500)
                 

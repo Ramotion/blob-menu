@@ -38,7 +38,7 @@ struct SecondView: View {
                 HStack(spacing: 16) {
                     Buttons.roundRect(title: "Close") { self.menuModel.closeMenu() }
                     Buttons.roundRect(title: "Open") { self.menuModel.openMenu() }
-                    Buttons.roundRect(title: "Select next") { self.menuModel.selectIndex(2) }
+                    Buttons.roundRect(title: "Next") { self.menuModel.selectIndex(2) }
                 }
                 .padding(.horizontal, 40)
                 .padding(.top, 40)
