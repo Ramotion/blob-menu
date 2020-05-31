@@ -22,22 +22,23 @@ struct SecondView: View {
                 
                 Text("Menu model")
                     .font(Font.system(size: 24, weight: Font.Weight.semibold))
-                    .foregroundColor(.contrastTextColor)
+                    .foregroundColor(.contrastText)
                     .lineLimit(1)
                     .padding(.top, 110)
                     .padding(.horizontal, 40)
                 
                 Text("Also, the menu can be opened and closed programmatically. Or switch the selected index")
                     .font(Font.system(size: 16))
-                    .foregroundColor(.contrastInformationColor)
+                    .lineSpacing(6)
+                    .foregroundColor(.contrastInformation)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 24)
                     .padding(.horizontal, 40)
                 
-                HStack(spacing: 50) {
-                    Button("Close") { self.menuModel.closeMenu() }
-                    Button("Open") { self.menuModel.openMenu() }
-                    Button("Select next") { self.menuModel.selectIndex(2) }
+                HStack(spacing: 16) {
+                    Buttons.roundRect(title: "Close") { self.menuModel.closeMenu() }
+                    Buttons.roundRect(title: "Open") { self.menuModel.openMenu() }
+                    Buttons.roundRect(title: "Select next") { self.menuModel.selectIndex(2) }
                 }
                 .padding(.horizontal, 40)
                 .padding(.top, 40)

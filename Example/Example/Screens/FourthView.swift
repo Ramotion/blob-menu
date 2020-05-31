@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-private let cardHeight: CGFloat = 146
+private let cardHeight: CGFloat = 156
 
 struct FourthView: View {
         
@@ -16,7 +16,8 @@ struct FourthView: View {
     
     var body: some View {
         let v = (UIScreen.main.bounds.height - cardHeight) / 2
-        let insets = UIEdgeInsets(top: v, left: 0, bottom: v, right: 0)
+        let vd: CGFloat = 50
+        let insets = UIEdgeInsets(top: v - vd, left: 0, bottom: v + vd, right: 0)
         
         return Screen(color: .background) {
             ZStack {
@@ -47,15 +48,16 @@ private struct ItemCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Drag card view")
+            Text("Drag scroll view")
                 .font(Font.system(size: 24, weight: Font.Weight.semibold))
-                .foregroundColor(Color.contrastTextColor)
+                .foregroundColor(Color.contrastText)
                 .lineLimit(1)
                 .padding(Edge.Set.all.subtracting(.bottom))
             
             Text("This is example shows how you can hide the menu while the user is interacting with other UI.")
                 .font(Font.system(size: 16))
-                .foregroundColor(Color.contrastInformationColor)
+                .lineSpacing(6)
+                .foregroundColor(Color.contrastInformation)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.trailing, 60)
                 .padding(Edge.Set.all.subtracting(.trailing))

@@ -19,14 +19,15 @@ struct FirstView: View {
                 
                 Text("SwiftUI Blob Menu")
                     .font(Font.system(size: 24, weight: Font.Weight.semibold))
-                    .foregroundColor(.contrastTextColor)
+                    .foregroundColor(.contrastText)
                     .lineLimit(1)
                     .padding(.top, 110)
                     .padding(.horizontal, 40)
                 
                 Text("Open the menu by tapping on the hamburger. To close the menu, just tap outside. In this example, by tapping on the menu you will switch the screen view, but it can be used for other purposes. In code you can update the configuration to the close menu after item has been selected.")
                     .font(Font.system(size: 16))
-                    .foregroundColor(.contrastInformationColor)
+                    .lineSpacing(6)
+                    .foregroundColor(.contrastInformation)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 24)
                     .padding(.horizontal, 40)
