@@ -32,7 +32,7 @@ struct FourthView: View {
                         Image("Icon_Swipe")
                         Spacer()
                     }
-                    .padding(.bottom, 20)
+                    .padding(.bottom, UIScreen.main.bounds.height < 800 ? 50 : 0)
                 }
                 .frame(maxHeight: 500)
                 

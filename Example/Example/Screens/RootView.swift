@@ -49,7 +49,7 @@ struct RootView: View {
     private var menuView: some View {
         VStack {
             Spacer()
-            BlobMenuView(model: blobMenuModel).padding(.bottom, 30)
+            BlobMenuView(model: blobMenuModel).padding(.bottom, 50)
         }
     }
 }

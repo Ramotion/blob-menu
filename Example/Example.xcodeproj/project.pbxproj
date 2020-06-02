@@ -447,6 +447,7 @@
 				DEVELOPMENT_TEAM = 34MUF9YXTA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.Example;
 				PRODUCT_NAME = "Blob Menu";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,6 +468,7 @@
 				DEVELOPMENT_TEAM = 34MUF9YXTA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +476,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.Example;
 				PRODUCT_NAME = "Blob Menu";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
