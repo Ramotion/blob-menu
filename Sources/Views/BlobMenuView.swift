@@ -12,12 +12,15 @@ public struct BlobMenuView: View {
     
     private let configuration: BlobMenuConfiguration
     @ObservedObject private var viewModel: BlobMenuModel
+    private let hapticFeedback: UIImpactFeedbackGenerator.FeedbackStyle?
     
     public init(model: BlobMenuModel,
-                configuration: BlobMenuConfiguration = .default) {
+                configuration: BlobMenuConfiguration = .default,
+                hapticFeedback: UIImpactFeedbackGenerator.FeedbackStyle? = .light) {
         
         self.viewModel = model
         self.configuration = configuration
+        self.hapticFeedback = hapticFeedback
         
         UIWindow.current?.addGesture(type: .tap) {[weak model] _ in
             model?.closeMenu()
@@ -106,6 +109,13 @@ public struct BlobMenuView: View {
                     selectionColor: self.configuration.selectionColor)
                 .onTapGesture {
                     guard self.viewModel.selectedIndex != index else { return }
+                    
+                    if let style = self.hapticFeedback {
+                        let generator = UIImpactFeedbackGenerator(style: style)
+                        generator.prepare()
+                        generator.impactOccurred()
+                    }
+                    
                     self.viewModel.selectIndex(index)
                 }
             }
