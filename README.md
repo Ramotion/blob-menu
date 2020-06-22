@@ -1,11 +1,11 @@
-<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=blob-menu"><img src="https://github.com/Ramotion/blob-menu/blob/master/header.png"></a>
+<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=blob-menu"><img src="https://github.com/Ramotion/blob-menu/blob/master/Promo/Header.png"></a>
 ​
-​
+<a href="https://github.com/Ramotion/animated-tab-bar">
+<img align="center" src="https://github.com/Ramotion/blob-menu/blob/master/Promo/Blob-Menu-dark.gif" /></a>
+
 <p><h1 align="left">BLOB MENU</h1></p>
-​
-<h4>Description</h4>
-​
-​
+
+<h4>Swift UI menu library.</h4>
 ___
 ​
 ​
